@@ -126,8 +126,7 @@ void changeChargeMode(volatile uint8_t *);
 void initCharge(volatile uint8_t *);
 
 int main( void )
-{	
-	//uint8_t t;
+{		
 	volatile uint8_t stateButtons=STATE_NO_BUTTONS;
 	volatile uint8_t  switchMeasuring = MEASURING_VOLTAGE;
 	
@@ -155,16 +154,9 @@ int main( void )
 	volatile uint16_t timeResetDisplay=100;
 	
 	
-	USART_Init();
+	USART_Init();	
 	
 	
-	while(0){
-		USART_SendChar('O'); //отвечаем компу "Ok "
-		USART_SendChar('k');
-		USART_SendChar(' ');
-		_delay_ms(1000);
-		
-	}
 	//инициализируем дисплей
 	DDRD|=(1<<PD6);
 	initCharge(arrVal8);

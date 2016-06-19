@@ -652,13 +652,13 @@ END GROUP
  .debug_abbrev  0x00000661       0xa8 pwm_lib.o
  .debug_abbrev  0x00000709      0x1e2 usart.o
 
-.debug_line     0x00000000      0xa15
+.debug_line     0x00000000      0xa13
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x132 buttons_lib.o
  .debug_line    0x00000132      0x29a lcd_lib_2.o
- .debug_line    0x000003cc      0x418 LCD_VP.o
- .debug_line    0x000007e4       0xc3 pwm_lib.o
- .debug_line    0x000008a7      0x16e usart.o
+ .debug_line    0x000003cc      0x416 LCD_VP.o
+ .debug_line    0x000007e2       0xc3 pwm_lib.o
+ .debug_line    0x000008a5      0x16e usart.o
 
 .debug_frame    0x00000000      0x4d4
  *(.debug_frame)
