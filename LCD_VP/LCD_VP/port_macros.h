@@ -164,8 +164,8 @@ else {BM_ClearBit(PORT##id, pin);};                     \
 	PM_WritePin(port##_##7, value, 7);\
 }while(0)
 
-#define _PM_WritePort_REAL(port, id, value)            do{  uint8_t mask = _pin(port##_##7)|_pin(port##_##6)|_pin(port##_##5)|_pin(port##_##4)|_pin(port##_##3)|_pin(port##_##2)|_pin(port##_##1)|_pin(port##_##0); \
-	PORT##id = (PORT##id & (~mask))|(value & mask); \
+#define _PM_WritePort_REAL(port, id, value)            do{  uint8_t _mask = _pin(port##_##7)|_pin(port##_##6)|_pin(port##_##5)|_pin(port##_##4)|_pin(port##_##3)|_pin(port##_##2)|_pin(port##_##1)|_pin(port##_##0); \
+	PORT##id = (PORT##id & (~_mask))|(value & _mask); \
 }while(0)
 
 #define _PM_WritePort_NONE(port, id, value)
@@ -198,8 +198,8 @@ else {BM_ClearBit(DDR##id, pin);};                     \
 	PM_SetDir(port##_##7, value, 7);\
 }while(0)
 
-#define _PM_DirPort_REAL(port, id, value)         do{uint8_t mask = _pin(port##_##7)|_pin(port##_##6)|_pin(port##_##5)|_pin(port##_##4)|_pin(port##_##3)|_pin(port##_##2)|_pin(port##_##1)|_pin(port##_##0);\
-	DDR##id = (DDR##id & (~mask))|(value & mask); \
+#define _PM_DirPort_REAL(port, id, value)         do{uint8_t _mask = _pin(port##_##7)|_pin(port##_##6)|_pin(port##_##5)|_pin(port##_##4)|_pin(port##_##3)|_pin(port##_##2)|_pin(port##_##1)|_pin(port##_##0);\
+	DDR##id = (DDR##id & (~_mask))|(value & _mask); \
 }while(0);
 
 #define _PM_DirPort_NONE(port, id, value)
@@ -230,8 +230,8 @@ else {BM_ClearBit(var, num);}                        \
 	PM_ReadBit(port##_##7, var, 7);\
 }while(0)
 
-#define _PM_ReadPort_REAL(port, id, var)           do{uint8_t mask = _pin(port##_##7)|_pin(port##_##6)|_pin(port##_##5)|_pin(port##_##4)|_pin(port##_##3)|_pin(port##_##2)|_pin(port##_##1)|_pin(port##_##0);\
-	var = (PIN##id & mask); \
+#define _PM_ReadPort_REAL(port, id, var)           do{uint8_t _mask = _pin(port##_##7)|_pin(port##_##6)|_pin(port##_##5)|_pin(port##_##4)|_pin(port##_##3)|_pin(port##_##2)|_pin(port##_##1)|_pin(port##_##0);\
+	var = (PIN##id & _mask); \
 }while(0);
 
 #define _PM_ReadPort_NONE(port, id, var)

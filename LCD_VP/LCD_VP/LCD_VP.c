@@ -126,7 +126,16 @@ void changeChargeMode(volatile uint8_t *);
 void initCharge(volatile uint8_t *);
 
 int main( void )
-{		
+{	
+	/*	
+	DDRB=1;
+	while(1){
+		BM_SetBit(PORTB,0);
+		_delay_ms(10);
+		BM_ClearBit(PORTB,0);
+		_delay_ms(10);
+	}
+	*/
 	volatile uint8_t stateButtons=STATE_NO_BUTTONS;
 	volatile uint8_t  switchMeasuring = MEASURING_VOLTAGE;
 	
